@@ -101,6 +101,7 @@ OnTick(function (myHero)
         local EDmg = 50 + 10 * GetCastLevel(myHero, _E) + (BonusAD) * .2 + (BaseAP + BonusAP) * .6
         local ERange = 450
 	local QDmg = 20 + 20 * GetCastLevel(myHero, _Q) + (BaseAD + BonusAD) * 1
+	local QRange = 475
 
 
 	--AUTO LEVEL UP
@@ -271,9 +272,7 @@ OnTick(function (myHero)
         if YasuoMenu.Farm.E:Value() and Ready(_E) and ValidTarget(minion, ERange) and GetCurrentHP(minion) < CalcDamage(myHero,minion,EDmg,E) then
             CastTargetSpell(minion,_E)
         end
-    end
-		
-   	for _, minion in pairs(minionManager.objects) do
+    		   	
         if YasuoMenu.Farm.Q:Value() and Ready(_Q) and ValidTarget(minion, QRange) and GetCurrentHP(minion) < CalcDamage(myHero,minion,QDmg,Q) then
             CastSkillShot(_Q, closeminion)
         end
