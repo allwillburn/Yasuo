@@ -32,7 +32,7 @@ local SetDCP, SkinChanger = 0
 
 local BonusAD = GetBonusDmg(myHero)
         local BaseAD = GetBaseDamage(myHero)
-        local EDmg = 60 + (10 * GetCastLevel(myHero, _E)) + ((BonusAD) * .2)) + ((BonusAP) * .6)
+        local EDmg = 60 + 10 * GetCastLevel(myHero, _E) + (BonusAD) * .2 + (BonusAP) * .6
         local ERange = 450
 
 local YasuoMenu = Menu("Yasuo", "Yasuo")
@@ -98,7 +98,7 @@ OnTick(function (myHero)
         local Randuins = GetItemSlot(myHero, 3143)
         local BonusAD = GetBonusDmg(myHero)
         local BaseAD = GetBaseDamage(myHero)
-        local EDmg = 60 + (10 * GetCastLevel(myHero, _E)) + ((BonusAD) * .2)) + ((BonusAP) * .6)
+        local EDmg = 60 + 10 * GetCastLevel(myHero, _E) + (BonusAD) * .2) + (BonusAP) * .6
         local ERange = 450
 
 
