@@ -173,6 +173,12 @@ OnTick(function (myHero)
                          CastSkillShot(_Q, target)
                      end
             end	
+			
+            	if YasuoMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 475) then
+		     if target ~= nil then 
+                         CastSkillShot(_Q, target)
+                     end
+            end		
 	    
             if YasuoMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 1200) and (EnemiesAround(myHeroPos(), 1200) >= YasuoMenu.Combo.RX:Value()) then
 			CastSpell(_R)
