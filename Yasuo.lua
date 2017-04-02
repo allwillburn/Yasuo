@@ -74,6 +74,7 @@ YasuoMenu.Harass:Boolean("Q", "Use Q", true)
 YasuoMenu:SubMenu("KillSteal", "KillSteal")
 YasuoMenu.KillSteal:Boolean("Q", "KS w Q", true)
 YasuoMenu.KillSteal:Boolean("E", "KS w E", true)
+YasuoMenu.KillSteal:Boolean("R", "KS w R", true)
 
 YasuoMenu:SubMenu("AutoIgnite", "AutoIgnite")
 YasuoMenu.AutoIgnite:Boolean("Ignite", "Ignite if killable", true)
