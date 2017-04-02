@@ -99,6 +99,7 @@ OnTick(function (myHero)
         local BaseAP = GetBaseDamage(myHero)
         local EDmg = 60 + 10 * GetCastLevel(myHero, _E) + (BonusAD) * .2 + (BaseAP + BonusAP) * .6
         local ERange = 450
+	local QDmg = 20 + 20 * GetCastLevel(myHero, _Q) + (BaseAD + BonusAD) * 1
 
 
 	--AUTO LEVEL UP
@@ -161,12 +162,12 @@ OnTick(function (myHero)
             end
 
 	    if YasuoMenu.Combo.W:Value() and Ready(_W) and ValidTarget(target, 400) then
-			CastSpell(_W)
+			CastSkillShot(_Q, target)
 	    end
 	    
 	    
-            if YasuoMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 700) and (EnemiesAround(myHeroPos(), 700) >= YasuoMenu.Combo.RX:Value()) then
-			CastSpell(_R)
+            if YasuoMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 1200) and (EnemiesAround(myHeroPos(), 1200) >= YasuoMenu.Combo.RX:Value()) then
+			CastTargetSpell(target,_R)
             end
 
           end
@@ -205,12 +206,17 @@ OnTick(function (myHero)
 		                     CastTargetSpell(target,_E)
   
                 end
+			
+		if IsReady(_R) and ValidTarget(enemy, 1200) and YasuoMenu.KillSteal.R:Value() and GetHP(enemy) < getdmg("R",enemy) then
+		                     CastTargetSpell(target,_R)
+  
+                end
       end
 
       if Mix:Mode() == "LaneClear" then
       	  for _,closeminion in pairs(minionManager.objects) do
 	        if YasuoMenu.LaneClear.Q:Value() and Ready(_Q) and ValidTarget(closeminion, 475) then
-	        	CastSkillShoy(_Q,closeminion)
+	        	CastSkillShot(_Q,closeminion)
                 end
 
 
@@ -235,7 +241,7 @@ OnTick(function (myHero)
         end 
         if YasuoMenu.AutoMode.W:Value() then        
           if Ready(_W) and ValidTarget(target, 400) then
-	  	      CastSpell(_W)
+	  	      CastSkillShot(_Q, target)
           end
         end
         if YasuoMenu.AutoMode.E:Value() then        
@@ -244,8 +250,8 @@ OnTick(function (myHero)
 	  end
         end
         if YasuoMenu.AutoMode.R:Value() then        
-	  if Ready(_R) and ValidTarget(target, 700) then
-		      CastSpell(_R)
+	  if Ready(_R) and ValidTarget(target, 1200) then
+		     CastTargetSpell(target,_R)
 	  end
         end
                 
@@ -265,6 +271,12 @@ OnTick(function (myHero)
             CastTargetSpell(minion,_E)
         end
     end
+		
+   	for _, minion in pairs(minionManager.objects) do
+        if YasuoMenu.Farm.Q:Value() and Ready(_Q) and ValidTarget(minion, QRange) and GetCurrentHP(minion) < CalcDamage(myHero,minion,QDmg,Q) then
+            CastSkillShot(_Q,closeminion)
+        end
+    end	
 end)
 
 
