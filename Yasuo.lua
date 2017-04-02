@@ -223,8 +223,8 @@ OnTick(function (myHero)
 
       if Mix:Mode() == "LaneClear" then
       	  for _,closeminion in pairs(minionManager.objects) do
-	        if YasuoMenu.LaneClear.Q:Value() and Ready(_Q) and ValidTarget(closeminion, 475) then
-	        	CastSkillShot(_Q, closeminion)
+	        if YasuoMenu.LaneClear.Q:Value() and Ready(_Q) and ValidTarget(minion, 475) then
+	        	CastSkillShot(_Q, minion)
                 end
 
 
