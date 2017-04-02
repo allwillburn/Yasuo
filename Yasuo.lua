@@ -270,13 +270,17 @@ OnTick(function (myHero)
 
 --Auto E on minions
     for _, minion in pairs(minionManager.objects) do
+			
+			   	
+        if YasuoMenu.Farm.Q:Value() and Ready(_Q) and ValidTarget(minion, QRange) and GetCurrentHP(minion) < CalcDamage(myHero,minion,QDmg,Q) then
+            CastSkillShot(_Q, minion)
+        end
+			
         if YasuoMenu.Farm.E:Value() and Ready(_E) and ValidTarget(minion, ERange) and GetCurrentHP(minion) < CalcDamage(myHero,minion,EDmg,E) then
             CastTargetSpell(minion,_E)
         end
     		   	
-        if YasuoMenu.Farm.Q:Value() and Ready(_Q) and ValidTarget(minion, QRange) and GetCurrentHP(minion) < CalcDamage(myHero,minion,QDmg,Q) then
-            CastSkillShot(_Q, minion)
-        end
+       
     end	
 end)
 
