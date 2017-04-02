@@ -114,7 +114,7 @@ OnTick(function (myHero)
           if Mix:Mode() == "Harass" then
             if YasuoMenu.Harass.Q:Value() and Ready(_Q) and ValidTarget(target, 475) then
 				if target ~= nil then 
-                                      CastTargetSpell(target, _Q)
+                                      CastSkillShot(_Q, target)
                                 end
             end
      
@@ -139,12 +139,12 @@ OnTick(function (myHero)
             end
 
             if YasuoMenu.Combo.E:Value() and Ready(_E) and ValidTarget(target, 475) then
-			 CastSpell(_E)
+			CastTargetSpell(target,_E)
 	    end
 
             if YasuoMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 475) then
 		     if target ~= nil then 
-                         CastTargetSpell(target, _Q)
+                         CastSkillShot(_Q, target)
                      end
             end
 
@@ -202,7 +202,7 @@ OnTick(function (myHero)
                 end 
 
                 if IsReady(_E) and ValidTarget(enemy, 475) and YasuoMenu.KillSteal.E:Value() and GetHP(enemy) < getdmg("E",enemy) then
-		                      CastSpell(_E)
+		                     CastTargetSpell(target,_E)
   
                 end
       end
@@ -210,12 +210,12 @@ OnTick(function (myHero)
       if Mix:Mode() == "LaneClear" then
       	  for _,closeminion in pairs(minionManager.objects) do
 	        if YasuoMenu.LaneClear.Q:Value() and Ready(_Q) and ValidTarget(closeminion, 475) then
-	        	CastTargetSpell(closeminion, _Q)
+	        	CastSkillShoy(_Q,closeminion)
                 end
 
 
                 if YasuoMenu.LaneClear.E:Value() and Ready(_E) and ValidTarget(closeminion, 475) then
-	        	CastSpell(_E)
+	        	CastTargetSpell(minion,_E)
 	        end
 
                 if YasuoMenu.LaneClear.Tiamat:Value() and ValidTarget(closeminion, 350) then
@@ -230,7 +230,7 @@ OnTick(function (myHero)
         --AutoMode
         if YasuoMenu.AutoMode.Q:Value() then        
           if Ready(_Q) and ValidTarget(target, 475) then
-		      CastTargetSpell(target, _Q)
+		      CastSkillShot(_Q, target)
           end
         end 
         if YasuoMenu.AutoMode.W:Value() then        
@@ -240,7 +240,7 @@ OnTick(function (myHero)
         end
         if YasuoMenu.AutoMode.E:Value() then        
 	  if Ready(_E) and ValidTarget(target, 475) then
-		      CastSpell(_E)
+		      CastTargetSpell(target,_E)
 	  end
         end
         if YasuoMenu.AutoMode.R:Value() then        
