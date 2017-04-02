@@ -97,7 +97,7 @@ OnTick(function (myHero)
         local BaseAD = GetBaseDamage(myHero)
 	local BonusAP = GetBonusDmg(myHero)
         local BaseAP = GetBaseDamage(myHero)
-        local EDmg = 60 + 10 * GetCastLevel(myHero, _E) + (BonusAD) * .2 + (BaseAP + BonusAP) * .6
+        local EDmg = 50 + 10 * GetCastLevel(myHero, _E) + (BonusAD) * .2 + (BaseAP + BonusAP) * .6
         local ERange = 450
 	local QDmg = 20 + 20 * GetCastLevel(myHero, _Q) + (BaseAD + BonusAD) * 1
 
