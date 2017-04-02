@@ -175,7 +175,7 @@ OnTick(function (myHero)
             end	
 	    
             if YasuoMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 1200) and (EnemiesAround(myHeroPos(), 1200) >= YasuoMenu.Combo.RX:Value()) then
-			CastSpell(_R)
+			CastTargetSpell(target, _R)
             end
 
           end
