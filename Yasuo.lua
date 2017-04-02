@@ -275,7 +275,7 @@ OnTick(function (myHero)
 		
    	for _, minion in pairs(minionManager.objects) do
         if YasuoMenu.Farm.Q:Value() and Ready(_Q) and ValidTarget(minion, QRange) and GetCurrentHP(minion) < CalcDamage(myHero,minion,QDmg,Q) then
-            CastSkillShot(_Q,closeminion)
+            CastSkillShot(_Q, closeminion)
         end
     end	
 end)
