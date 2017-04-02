@@ -259,7 +259,7 @@ OnTick(function (myHero)
         end
         if YasuoMenu.AutoMode.R:Value() then        
 	  if Ready(_R) and ValidTarget(target, 1200) then
-		     CastTargetSpell(target,_R)
+		     CastSpell(_R)
 	  end
         end
                 
