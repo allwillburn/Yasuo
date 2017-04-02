@@ -209,7 +209,7 @@ OnTick(function (myHero)
                 end
 			
 		if IsReady(_R) and ValidTarget(enemy, 1200) and YasuoMenu.KillSteal.R:Value() and GetHP(enemy) < getdmg("R",enemy) then
-		                     CastTargetSpell(target,_R)
+		                     CastTargetSpell(target, _R)
   
                 end
       end
@@ -217,7 +217,7 @@ OnTick(function (myHero)
       if Mix:Mode() == "LaneClear" then
       	  for _,closeminion in pairs(minionManager.objects) do
 	        if YasuoMenu.LaneClear.Q:Value() and Ready(_Q) and ValidTarget(closeminion, 475) then
-	        	CastSkillShot(_Q,closeminion)
+	        	CastSkillShot(_Q, closeminion)
                 end
 
 
