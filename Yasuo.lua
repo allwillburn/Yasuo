@@ -30,10 +30,7 @@ GetWebResultAsync("https://raw.githubusercontent.com/allwillburn/Yasuo/master/Ya
 GetLevelPoints = function(unit) return GetLevel(unit) - (GetCastLevel(unit,0)+GetCastLevel(unit,1)+GetCastLevel(unit,2)+GetCastLevel(unit,3)) end
 local SetDCP, SkinChanger = 0
 
-local BonusAD = GetBonusDmg(myHero)
-        local BaseAD = GetBaseDamage(myHero)
-        local EDmg = 60 + 10 * GetCastLevel(myHero, _E) + (BonusAD) * .2 + (BaseAP + BonusAP) * .6
-        local ERange = 450
+
 
 local YasuoMenu = Menu("Yasuo", "Yasuo")
 
@@ -98,7 +95,9 @@ OnTick(function (myHero)
         local Randuins = GetItemSlot(myHero, 3143) 
         local BonusAD = GetBonusDmg(myHero)
         local BaseAD = GetBaseDamage(myHero)
-       local EDmg = 60 + 10 * GetCastLevel(myHero, _E) + (BonusAD) * .2 + (BaseAP + BonusAP) * .6
+	local BonusAP = GetBonusDmg(myHero)
+        local BaseAP = GetBaseDamage(myHero)
+        local EDmg = 60 + 10 * GetCastLevel(myHero, _E) + (BonusAD) * .2 + (BaseAP + BonusAP) * .6
         local ERange = 450
 
 
