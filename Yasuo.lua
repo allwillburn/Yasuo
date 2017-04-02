@@ -60,6 +60,7 @@ YasuoMenu.AutoMode:Boolean("R", "Auto R", false)
 
 YasuoMenu:SubMenu("Farm", "Farm")
 YasuoMenu.Farm:Boolean("E", "AutoE", true)
+YasuoMenu.Farm:Boolean("Q", "AutoQ", true)
 
 YasuoMenu:SubMenu("LaneClear", "LaneClear")
 YasuoMenu.LaneClear:Boolean("Q", "Use Q", true)
