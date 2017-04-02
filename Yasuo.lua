@@ -95,7 +95,7 @@ OnTick(function (myHero)
         local Gunblade = GetItemSlot(myHero, 3146)
         local BOTRK = GetItemSlot(myHero, 3153)
         local Cutlass = GetItemSlot(myHero, 3144)
-        local Randuins = GetItemSlot(myHero, 3143)
+        local Randuins = GetItemSlot(myHero, 3143) 
         local BonusAD = GetBonusDmg(myHero)
         local BaseAD = GetBaseDamage(myHero)
         local EDmg = 60 + 10 * GetCastLevel(myHero, _E) + (BonusAD) * .2 + (BonusAP) * .6
