@@ -229,7 +229,7 @@ OnTick(function (myHero)
 
 
                 if YasuoMenu.LaneClear.E:Value() and Ready(_E) and ValidTarget(minion, 475) then
-	        	CastTargetSpell(minion,_E)
+	        	CastTargetSpell(minion, _E)
 	        end
 
                 if YasuoMenu.LaneClear.Tiamat:Value() and ValidTarget(closeminion, 350) then
