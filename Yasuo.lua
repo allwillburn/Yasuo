@@ -287,7 +287,7 @@ OnTick(function (myHero)
             CastSkillShot(_Q, minion)
         end
 			
-        if YasuoMenu.Farm.E:Value() and Ready(_E) and ValidTarget(minion, ERange) and and GetHP(minion) < getdmg("E",minion) then 
+        if YasuoMenu.Farm.E:Value() and Ready(_E) and ValidTarget(minion, ERange) and GetHP(minion) < getdmg("E",minion) then 
             CastTargetSpell(minion,_E)
         end
     		   	
