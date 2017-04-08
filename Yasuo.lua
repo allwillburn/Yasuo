@@ -11,7 +11,7 @@ end
 
 if GetObjectName(GetMyHero()) ~= "Yasuo" then return end
 
-
+require("OpenPredict")
 require("DamageLib")
 
 function AutoUpdate(data)
@@ -299,7 +299,8 @@ OnTick(function (myHero)
         if YasuoMenu.Farm.E:Value() and Ready(_E) and ValidTarget(minion, ERange) and GetCurrentHP(minion) < getdmg("E",minion) then 
             CastTargetSpell(minion,_E)
         end
-    		   	
+			
+		   	
        
     end	
 end)
