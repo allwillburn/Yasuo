@@ -171,7 +171,7 @@ OnTick(function (myHero)
 			CastSkillShot(_W, target)
 	    end
 	    
-	    	 if YasuoMenu.Combo.Q2:Value() and Ready(_Q2) and ValidTarget(target, 900) then
+	    	 if YasuoMenu.Combo.Q2:Value() and Ready(_Q) and ValidTarget(target, 900) then
                 local Q2Pred = GetPrediction(target,YasuoQ2)
                        if Q2Pred.hitChance > (YasuoMenu.Combo.Q2pred:Value() * 0.1) then
                                  CastSkillShot(_Q,Q2Pred.castPos)
