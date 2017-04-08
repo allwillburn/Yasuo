@@ -30,7 +30,7 @@ GetWebResultAsync("https://raw.githubusercontent.com/allwillburn/Yasuo/master/Ya
 GetLevelPoints = function(unit) return GetLevel(unit) - (GetCastLevel(unit,0)+GetCastLevel(unit,1)+GetCastLevel(unit,2)+GetCastLevel(unit,3)) end
 local SetDCP, SkinChanger = 0
 
-
+local YasuoQ2 = {delay = .5, range = 900, width = 90, speed = 1200}
 
 local YasuoMenu = Menu("Yasuo", "Yasuo")
 
@@ -38,6 +38,7 @@ YasuoMenu:SubMenu("Combo", "Combo")
 
 YasuoMenu.Combo:Boolean("Q", "Use Q in combo", true)
 YasuoMenu.Combo:Boolean("Q2", "Use Q2 in combo", true)
+YasuoMenu.Combo:Slider("Q2pred", "Q2 Hit Chance", 3,0,10,1)
 YasuoMenu.Combo:Boolean("W", "Use W in combo", true)
 YasuoMenu.Combo:Boolean("E", "Use E in combo", true)
 YasuoMenu.Combo:Boolean("R", "Use R in combo", true)
@@ -170,11 +171,12 @@ OnTick(function (myHero)
 			CastSkillShot(_W, target)
 	    end
 	    
-	    	 if YasuoMenu.Combo.Q2:Value() and Ready(_Q) and ValidTarget(target, 900) then
-		     if target ~= nil then 
-                         CastSkillShot(_Q, target)
-                     end
-            end	
+	    	 if YasuoMenu.Combo.Q2:Value() and Ready(_Q2) and ValidTarget(target, 900) then
+                local Q2Pred = GetPrediction(target,YasuoQ2)
+                       if Q2Pred.hitChance > (YasuoMenu.Combo.Q2pred:Value() * 0.1) then
+                                 CastSkillShot(_Q,Q2Pred.castPos)
+                       end
+                 end
 			
             	if YasuoMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 475) then
 		     if target ~= nil then 
