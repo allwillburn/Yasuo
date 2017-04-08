@@ -37,6 +37,7 @@ local YasuoMenu = Menu("Yasuo", "Yasuo")
 YasuoMenu:SubMenu("Combo", "Combo")
 
 YasuoMenu.Combo:Boolean("Q", "Use Q in combo", true)
+YasuoMenu.Combo:Boolean("Q2", "Use Q2 in combo", true)
 YasuoMenu.Combo:Boolean("W", "Use W in combo", true)
 YasuoMenu.Combo:Boolean("E", "Use E in combo", true)
 YasuoMenu.Combo:Boolean("R", "Use R in combo", true)
@@ -54,6 +55,7 @@ YasuoMenu:SubMenu("AutoMode", "AutoMode")
 YasuoMenu.AutoMode:Boolean("Level", "Auto level spells", false)
 YasuoMenu.AutoMode:Boolean("Ghost", "Auto Ghost", false)
 YasuoMenu.AutoMode:Boolean("Q", "Auto Q", false)
+YasuoMenu.AutoMode:Boolean("Q2", "Auto Q2", false)
 YasuoMenu.AutoMode:Boolean("W", "Auto W", false)
 YasuoMenu.AutoMode:Boolean("E", "Auto E", false)
 YasuoMenu.AutoMode:Boolean("R", "Auto R", false)
@@ -168,7 +170,7 @@ OnTick(function (myHero)
 			CastSkillShot(_W, target)
 	    end
 	    
-	    	 if YasuoMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 475) then
+	    	 if YasuoMenu.Combo.Q2:Value() and Ready(_Q) and ValidTarget(target, 900) then
 		     if target ~= nil then 
                          CastSkillShot(_Q, target)
                      end
@@ -255,7 +257,7 @@ OnTick(function (myHero)
         end 
         if YasuoMenu.AutoMode.W:Value() then        
           if Ready(_W) and ValidTarget(target, 400) then
-	  	      CastSkillShot(_Q, target)
+	  	      CastSkillShot(_W, target)
           end
         end
         if YasuoMenu.AutoMode.E:Value() then        
@@ -263,6 +265,11 @@ OnTick(function (myHero)
 		      CastTargetSpell(target,_E)
 	  end
         end
+		if YasuoMenu.AutoMode.Q2:Value() then        
+          if Ready(_Q) and ValidTarget(target, 900) then
+		      CastSkillShot(_Q, target)
+          end
+        end 
         if YasuoMenu.AutoMode.R:Value() then        
 	  if Ready(_R) and ValidTarget(target, 1200) then
 		     CastSpell(_R)
