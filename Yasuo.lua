@@ -301,7 +301,7 @@ OnTick(function (myHero)
             CastTargetSpell(minion,_E)
         end
 			
-	if YasuoMenu.Farm.AA:Value() and and ValidTarget(minion, 175) and GetCurrentHP(minion) < CalcDamage(myHero,minion,AADmg,AA) then
+	if YasuoMenu.Farm.AA:Value() and ValidTarget(minion, 175) and GetCurrentHP(minion) < CalcDamage(myHero,minion,AADmg,AA) then
             AttackUnit(minion)
         end	
 			
