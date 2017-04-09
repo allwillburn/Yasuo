@@ -64,6 +64,7 @@ YasuoMenu.AutoMode:Boolean("R", "Auto R", false)
 YasuoMenu:SubMenu("Farm", "Farm")
 YasuoMenu.Farm:Boolean("E", "AutoE", true)
 YasuoMenu.Farm:Boolean("Q", "AutoQ", true)
+YasuoMenu.Farm:Boolean("AA", "AutoAA", true)
 
 YasuoMenu:SubMenu("LaneClear", "LaneClear")
 YasuoMenu.LaneClear:Boolean("Q", "Use Q", true)
@@ -299,6 +300,10 @@ OnTick(function (myHero)
         if YasuoMenu.Farm.E:Value() and Ready(_E) and ValidTarget(minion, ERange) and GetCurrentHP(minion) < getdmg("E",minion) then 
             CastTargetSpell(minion,_E)
         end
+			
+	if YasuoMenu.Farm.AA:Value() and Ready(AA) and ValidTarget(minion, AARange) and GetCurrentHP(minion) < CalcDamage(myHero,minion,AADmg,AA) then
+            AttackUnit(minion)
+        end	
 			
 		   	
        
